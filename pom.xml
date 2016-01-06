@@ -25,7 +25,7 @@
   <name>HandcraftedBits License Header Support</name>
   <description>Support files and code for default HandcraftedBits license headers</description>
   <url>https://github.com/handcraftedbits/handcraftedbits-license</url>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.2-SNAPSHOT</version>
   <inceptionYear>2016</inceptionYear>
   
   <developers>
@@ -62,7 +62,7 @@
   <properties>
     <javadoc.excludedPackages></javadoc.excludedPackages>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.java>1.7</version.java>
+    <version.java>1.8</version.java>
     
     <version.dep.license>2.11</version.dep.license>
     
