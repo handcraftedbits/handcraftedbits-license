@@ -25,7 +25,7 @@
   <name>HandcraftedBits License Header Support</name>
   <description>Support files and code for default HandcraftedBits license headers</description>
   <url>https://github.com/handcraftedbits/handcraftedbits-license</url>
-  <version>1.0.4-SNAPSHOT</version>
+  <version>1.0.5-SNAPSHOT</version>
   <inceptionYear>2016</inceptionYear>
   
   <developers>
@@ -60,17 +60,18 @@
   </issueManagement>
   
   <properties>
+    <!--suppress CheckTagEmptyBody -->
     <javadoc.excludedPackages></javadoc.excludedPackages>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.java>1.8</version.java>
+    <version.java>21</version.java>
     
-    <version.dep.license>4.1</version.dep.license>
+    <version.dep.license>4.5</version.dep.license>
     
-    <version.plugin.compiler>3.10.1</version.plugin.compiler>
-    <version.plugin.gpg>3.0.1</version.plugin.gpg>
+    <version.plugin.compiler>3.13.0</version.plugin.compiler>
+    <version.plugin.gpg>3.2.4</version.plugin.gpg>
     <version.plugin.javadoc>3.4.1</version.plugin.javadoc>
-    <version.plugin.nexus-staging>1.6.13</version.plugin.nexus-staging>
-    <version.plugin.source>2.4</version.plugin.source>
+    <version.plugin.nexus-staging>1.7.0</version.plugin.nexus-staging>
+    <version.plugin.source>3.3.1</version.plugin.source>
   </properties>
   
   <dependencies>
