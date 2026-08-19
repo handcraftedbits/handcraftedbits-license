@@ -6,5 +6,8 @@ target/
 .DS_Store
 .checkstyle
 .classpath
+.flattened-pom.xml
+.git-versioned-pom.xml
 .project
 *.iml
+pom.xml.versionsBackup

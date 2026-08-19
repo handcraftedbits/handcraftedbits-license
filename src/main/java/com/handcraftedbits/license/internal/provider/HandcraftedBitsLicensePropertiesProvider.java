@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016-2024 HandcraftedBits
+ * Copyright (C) 2016-2026 HandcraftedBits
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,17 @@ import com.mycila.maven.plugin.license.AbstractLicenseMojo;
 import com.mycila.maven.plugin.license.PropertiesProvider;
 import com.mycila.maven.plugin.license.document.Document;
 
+/**
+ * Provides license property adjustments for the mycila Maven license plugin by computing a dynamic year range based on the project inception year and
+ * the current calendar year.
+ */
 public final class HandcraftedBitsLicensePropertiesProvider implements PropertiesProvider {
+     /**
+      * Creates a new HandcraftedBitsLicensePropertiesProvider.
+      */
+     public HandcraftedBitsLicensePropertiesProvider() {
+     }
+
      @Override
      @SuppressWarnings("unused")
      public Map<String, String> adjustProperties (final AbstractLicenseMojo mojo,
