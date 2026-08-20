@@ -1,0 +1,15 @@
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+insert_final_newline = true
+max_line_length = 150
+trim_trailing_whitespace = true
+
+[*.java]
+indent_size = 5
+tab_width = 5
+
+[*.{xml,yml}]
+indent_size = 2
+tab_width = 2

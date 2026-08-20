@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright (C) 2016 HandcraftedBits
+  Copyright (C) 2016-2026 HandcraftedBits
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -25,9 +25,9 @@
   <name>HandcraftedBits License Header Support</name>
   <description>Support files and code for default HandcraftedBits license headers</description>
   <url>https://github.com/handcraftedbits/handcraftedbits-license</url>
-  <version>1.0.3</version>
+  <version>${revision}${changelist}</version>
   <inceptionYear>2016</inceptionYear>
-  
+
   <developers>
     <developer>
       <name>Curtiss Howard</name>
@@ -46,7 +46,7 @@
       <url>http://www.apache.org/licenses/LICENSE-2.0</url>
     </license>
   </licenses>
-  
+
   <scm>
     <url>https://github.com/handcraftedbits/handcraftedbits-license</url>
     <connection>scm:git:git://github.com/handcraftedbits/handcraftedbits-license.git</connection>
@@ -58,21 +58,25 @@
     <url>https://github.com/handcraftedbits/handcraftedbits-license/issues</url>
     <system>GitHub Issues</system>
   </issueManagement>
-  
+
   <properties>
+    <revision>1.1.1</revision>
+    <changelist>-SNAPSHOT</changelist>
+
+    <!--suppress CheckTagEmptyBody -->
     <javadoc.excludedPackages></javadoc.excludedPackages>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.java>1.8</version.java>
-    
-    <version.dep.license>4.1</version.dep.license>
-    
-    <version.plugin.compiler>3.10.1</version.plugin.compiler>
-    <version.plugin.gpg>3.0.1</version.plugin.gpg>
-    <version.plugin.javadoc>3.4.1</version.plugin.javadoc>
-    <version.plugin.nexus-staging>1.6.13</version.plugin.nexus-staging>
-    <version.plugin.source>2.4</version.plugin.source>
+    <version.java>25</version.java>
+
+    <version.dep.license>5.1.1</version.dep.license>
+
+    <version.plugin.central-publishing>0.11.0</version.plugin.central-publishing>
+    <version.plugin.compiler>3.15.0</version.plugin.compiler>
+    <version.plugin.gpg>3.2.8</version.plugin.gpg>
+    <version.plugin.javadoc>3.12.0</version.plugin.javadoc>
+    <version.plugin.source>3.4.0</version.plugin.source>
   </properties>
-  
+
   <dependencies>
     <dependency>
       <groupId>com.mycila</groupId>
@@ -81,7 +85,7 @@
       <scope>compile</scope>
     </dependency>
   </dependencies>
-  
+
   <profiles>
     <!-- Basic settings for Java projects. -->
     <profile>
@@ -109,7 +113,7 @@
         </pluginManagement>
       </build>
     </profile>
-    
+
     <!-- Release/deploy to Maven Central -->
     <profile>
       <id>release</id>
@@ -123,6 +127,9 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
             <version>${version.plugin.gpg}</version>
+            <configuration>
+              <signer>bc</signer>
+            </configuration>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -144,7 +151,9 @@
                   <goal>jar</goal>
                 </goals>
                 <configuration>
-                  <additionalparam>-Xdoclint:none</additionalparam>
+                  <additionalOptions>
+                    <additionalOption>-Xdoclint:none</additionalOption>
+                  </additionalOptions>
                   <excludePackageNames>${javadoc.excludedPackages}</excludePackageNames>
                   <links>
                     <link>https://docs.oracle.com/javaee/7/api/</link>
@@ -167,28 +176,18 @@
             </executions>
           </plugin>
           <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>${version.plugin.nexus-staging}</version>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>${version.plugin.central-publishing}</version>
+            <extensions>true</extensions>
             <configuration>
-              <serverId>ossrh</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              <publishingServerId>central</publishingServerId>
+              <autoPublish>true</autoPublish>
+              <waitUntil>published</waitUntil>
             </configuration>
           </plugin>
         </plugins>
       </build>
-
-      <distributionManagement>
-        <snapshotRepository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-      </distributionManagement>
     </profile>
   </profiles>
 </project>

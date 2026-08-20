@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016 HandcraftedBits
+ * Copyright (C) 2016-2026 HandcraftedBits
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,15 +24,27 @@ import com.mycila.maven.plugin.license.AbstractLicenseMojo;
 import com.mycila.maven.plugin.license.PropertiesProvider;
 import com.mycila.maven.plugin.license.document.Document;
 
+/**
+ * Provides license property adjustments for the mycila Maven license plugin by computing a dynamic year range based on the project inception year and
+ * the current calendar year.
+ */
 public final class HandcraftedBitsLicensePropertiesProvider implements PropertiesProvider {
-     public Map<String, String> getAdditionalProperties (final AbstractLicenseMojo mojo,
-          final Properties currentProperties, final Document document) {
+     /**
+      * Creates a new HandcraftedBitsLicensePropertiesProvider.
+      */
+     public HandcraftedBitsLicensePropertiesProvider() {
+     }
+
+     @Override
+     @SuppressWarnings("unused")
+     public Map<String, String> adjustProperties (final AbstractLicenseMojo mojo,
+          final Map<String, String> currentProperties, final Document document) {
           int currentYear = Calendar.getInstance().get(Calendar.YEAR);
           int inceptionYear;
           final Map<String, String> result = new HashMap<>();
 
           try {
-               inceptionYear = Integer.parseInt(currentProperties.getProperty("project.inceptionYear"));
+               inceptionYear = Integer.parseInt(currentProperties.get("project.inceptionYear"));
           }
 
           catch (final Throwable e) {
