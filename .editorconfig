@@ -10,6 +10,6 @@ trim_trailing_whitespace = true
 indent_size = 5
 tab_width = 5
 
-[*.{xml,yml}]
+[*.xml]
 indent_size = 2
 tab_width = 2

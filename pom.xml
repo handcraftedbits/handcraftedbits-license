@@ -43,7 +43,7 @@
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
     </license>
   </licenses>
 
@@ -68,6 +68,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.java>25</version.java>
 
+    <version.dep.commons-io>2.22.0</version.dep.commons-io>
     <version.dep.license>5.1.1</version.dep.license>
 
     <version.plugin.central-publishing>0.11.0</version.plugin.central-publishing>
@@ -76,6 +77,16 @@
     <version.plugin.javadoc>3.12.0</version.plugin.javadoc>
     <version.plugin.source>3.4.0</version.plugin.source>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${version.dep.commons-io}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
@@ -151,9 +162,7 @@
                   <goal>jar</goal>
                 </goals>
                 <configuration>
-                  <additionalOptions>
-                    <additionalOption>-Xdoclint:none</additionalOption>
-                  </additionalOptions>
+                  <doclint>none</doclint>
                   <excludePackageNames>${javadoc.excludedPackages}</excludePackageNames>
                   <links>
                     <link>https://docs.oracle.com/javaee/7/api/</link>
